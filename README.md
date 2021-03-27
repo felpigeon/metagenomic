@@ -1,6 +1,6 @@
 ## Pré-requis
 
-Il faut exécuter avoir les fichiers abundance.txt et marker_presence.txt présent dans le même répertoire que les scripts.
+Il faut avoir les fichiers abundance.txt et marker_presence.txt présent dans le même répertoire que les scripts.
 
 ## Split des données
 
@@ -9,10 +9,10 @@ On commence par éliminer les doublons (échantillons du provenant du même indi
 Pour faire cette première étape, on n'a qu'a exécuter le script data.py :
 
 ```
-python3 data.py
+python data.py
 ```
 
-Le script va créer 2 fichiers : train_idx.npy et test_idx.npy. C'est deux fichiers contiennent les indexes des échantillons de chaque dataset. On pourra utiliser ces fichiers pour charger le dataset voulu.
+Le script va créer 2 fichiers : train_idx.npy et test_idx.npy. C'est deux fichiers contiennent les indexes des échantillons de chaque dataset. On pourra utiliser ces fichiers pour charger le dataset voulu. (C'est déjà fait. On peut utiliser les fichiers déjà présents.)
 
 ## Chargement des données
 
