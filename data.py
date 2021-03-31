@@ -110,9 +110,14 @@ def load_all_features(name, prefix, ids):
 def load_x_and_y(path):
 	index = np.load(path)
 
-	x1 = load_all_features( 'abundance.txt', 'k__', index)
 	x = load_all_features( 'marker_presence.txt', 'gi|', index)
+	print( 'marker features:', x.shape[1] )
+
+	x1 = load_all_features( 'abundance.txt', 'k__', index)
+	print( 'abundances features:', x1.shape[1] )
+
 	x = np.concatenate( [x, x1], axis=-1 )
+	print( 'total n of features:', x.shape[1] )
 
 	_, disease = uniq_id('abundance.txt')
 
@@ -121,7 +126,8 @@ def load_x_and_y(path):
 			'ibd_crohn_disease', 'ibd_ulcerative_colitis', 'impaired_glucose_tolerance', 'y',
 			'large_adenoma', 'small_adenoma', 'cancer', 'cirrhosis']
 
-	y = np.array([maladies.count(d) for d in disease])
+	# Classe: 0=malade, 1=en santée
+	y = np.array( [1-int(d in maladies) for d in disease] )
 	y = y[index]
 
 	return x, y
