@@ -100,7 +100,7 @@ def load_all_features(name, prefix, ids, features_index):
 			if not line.startswith(prefix):
 				continue
 
-			if  features_index is not None and not (features_pointer in features_index):
+			if  features_index is not None and not (file_pointer in features_index):
 				file_pointer+= 1
 				continue
 
@@ -110,6 +110,9 @@ def load_all_features(name, prefix, ids, features_index):
 
 			features_pointer+= 1
 			file_pointer+= 1
+
+
+	print(file_pointer, features_pointer)
 
 	return features
 
@@ -121,7 +124,7 @@ def load_x_and_y(index_path, features_path=None):
 	if features_path:
 		features = np.load(features_path)
 		features_marker = features[features < 288347]
-		features_abundance = features[features >= 288347]
+		features_abundance = features[features >= 288347] - 288347
 	else:
 		features_marker = None
 		features_abundance = None
