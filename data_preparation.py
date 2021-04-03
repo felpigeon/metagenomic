@@ -111,9 +111,6 @@ def load_all_features(name, prefix, ids, features_index):
 			features_pointer+= 1
 			file_pointer+= 1
 
-
-	print(file_pointer, features_pointer)
-
 	return features
 
 
