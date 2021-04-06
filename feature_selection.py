@@ -4,6 +4,8 @@ from sklearn.ensemble import RandomForestClassifier
 from data_preparation import load_x_and_y
 
 xTrain, yTrain = load_x_and_y('data/train_idx.npy')
+np.save('xTrain.npy', xTrain)
+np.save('yTrain.npy', yTrain)
 print('Training set shapes', xTrain.shape, yTrain.shape)
 
 
